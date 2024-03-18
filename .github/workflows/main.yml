@@ -38,7 +38,7 @@ jobs:
         run: ls
       
       - name: process env
-        run: echo process.env.MONGO_URL
+        run: echo $MONGO_URL
         
 
       - name: Run Jest tests
