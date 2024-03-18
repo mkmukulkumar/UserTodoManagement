@@ -26,10 +26,7 @@ jobs:
           MONGO_URL: ${{ secrets.MONGO_URL }}
           PORT: ${{ secrets.PORT }}
         run: |
-          if ! npm test; then
-            echo "Jest tests failed. Exiting with non-zero status code."
-            exit 1
-          fi
+          npm test
 
       - name: Build Docker image
         run: |
