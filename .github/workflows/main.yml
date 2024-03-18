@@ -34,9 +34,6 @@ jobs:
         run: |
           cat .env
       
-      - name: show str
-        run: ls
-      
       - name: process env
         run: echo $MONGO_URL
         
