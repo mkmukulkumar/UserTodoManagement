@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const userSchema = require('./model/models');
 const getUser=require('./middleware/getuser')
-const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
