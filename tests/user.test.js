@@ -1,7 +1,11 @@
 const request = require('supertest');
 const app = require('../app');
-
+const mongoose = require('mongoose');
 jest.setTimeout(20000);
+afterAll(async () => {
+  // Close the MongoDB database connection after running all tests
+  await mongoose.connection.close();
+});
 
 describe('User Management API', () => {
   let userId;
