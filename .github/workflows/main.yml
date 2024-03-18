@@ -27,8 +27,8 @@ jobs:
       - name: create .env file
         run: |
           touch .env
-          echo MONGO_URL=${{ secrets.MONGO_URL }} > .env
-          echo PORT=${{ secrets.PORT }} >> .env
+          echo MONGO_URL="hfsfdsfsd" > .env
+          echo PORT=3000 >> .env
 
       - name: Display .env file content
         run: |
