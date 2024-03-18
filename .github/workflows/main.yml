@@ -26,6 +26,7 @@ jobs:
 
       - name: create .env file
         run: |
+          touch .env
           echo "MONGO_URL=${{ secrets.MONGO_URL }}" > .env
           echo "PORT=${{ secrets.PORT }}" >> .env
 
