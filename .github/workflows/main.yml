@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      MONGO_URL: ${{ secrets.MONGO_URL }}
+      PORT: ${{ secrets.PORT }}
 
     steps:
       - name: Checkout code
@@ -21,13 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # - name: Run Jest tests
-      #   run: |
-      #     npm test
-      #   env:
-      #     MONGO_URL: ${{ secrets.MONGO_URL }}
-      #     PORT: ${{ secrets.PORT }}
-        
+      - name: Run Jest tests
+        run: |
+          npm test       
 
       - name: Build Docker image
         run: |
