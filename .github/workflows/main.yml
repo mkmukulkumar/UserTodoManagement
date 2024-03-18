@@ -28,15 +28,7 @@ jobs:
         run: |
           touch .env
           echo "MONGO_URL=\"${{ secrets.MONGO_URL }}\"" > .env
-          echo "PORT=${{ secrets.PORT }}" >> .env
-
-      - name: Display .env file content
-        run: |
-          cat .env
-      
-      - name: process env
-        run: echo $MONGO_URL
-        
+          echo "PORT=${{ secrets.PORT }}" >> .env        
 
       - name: Run Jest tests
         run: |

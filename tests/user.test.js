@@ -4,23 +4,6 @@ const app = require('../app');
 jest.setTimeout(20000);
 
 describe('User Management API', () => {
-  let server;
-  
-  beforeAll(done => {
-    server = app.listen(3000, () => {
-      console.log('Server started');
-      done();
-    });
-  });
-
-  afterAll(done => {
-    server.close(() => {
-      console.log('Server closed');
-      done();
-    });
-  });
-
-
   let userId;
 
 //   // Test case for creating a user
