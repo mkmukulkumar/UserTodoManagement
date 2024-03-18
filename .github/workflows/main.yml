@@ -26,6 +26,7 @@ jobs:
 
       - name: Run Jest tests
         run: |
+          echo "process.env.MONGO_URL"
           npm test       
 
       - name: Build Docker image
