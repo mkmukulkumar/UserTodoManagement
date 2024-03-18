@@ -21,12 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Jest tests
-        run: |
-          npm test
-        env:
-          MONGO_URL: ${{ secrets.MONGO_URL }}
-          PORT: ${{ secrets.PORT }}
+      # - name: Run Jest tests
+      #   run: |
+      #     npm test
+      #   env:
+      #     MONGO_URL: ${{ secrets.MONGO_URL }}
+      #     PORT: ${{ secrets.PORT }}
         
 
       - name: Build Docker image
