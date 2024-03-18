@@ -14,7 +14,6 @@ app.use(
 );
 
 // Connect to MongoDB when the application starts up
-console.log(process.env.MONGO_URL)
 mongoose.connect(process.env.MONGO_URL)
 .catch(err => console.error('Error connecting to MongoDB:', err));
 
