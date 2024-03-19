@@ -50,25 +50,25 @@ There are three test files with a total of 13 test cases. These tests are execut
 - Pagination and filtering options for fetching to-do items.
 - Automated Testing using Jest framework 
 - Swagger docs integration for easier API interaction. Swagger UI can be accessed at [http://localhost:8000/api-docs](http://localhost:8000/api-docs)
-- Dockerization of the code for easy deployment. Docker image available at  [Docker](https://hub.docker.com/repository/docker/mkmukulkumar/user-management-api/general)
+- Dockerization of the code for easy deployment. Docker image available at  [Docker](https://hub.docker.com/repository/docker/mkmukulkumar/user-todo-management-api/general)
 - Implementation of CI/CD pipeline using Github Actions
   
-To quickly test the APIs, you can run the Docker image available  [mkmukulkumar/user-management-api](https://hub.docker.com/repository/docker/mkmukulkumar/user-management-api/general) using the following command:
+To quickly test the APIs, you can run the Docker image available  [mkmukulkumar/user-todo-management-api](https://hub.docker.com/repository/docker/mkmukulkumar/user-todo-management-api/general) using the following command:
 
 Use command:
 ```bash
-docker container run --env MONGO_URL=<your_Mongo_URL> --env PORT=8000 --env JWT_SECRET=<JWTsecret> -p 8000:8000 mkmukulkumar/user-management-api
+docker container run --env MONGO_URL=<your_Mongo_URL> --env PORT=8000 --env JWT_SECRET=<JWTsecret> -p 8000:8000 mkmukulkumar/user-todo-management-api
 ```
 
 ## Running locally
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/mkmukulkumar/usermanagementAPI.git
+   git clone https://github.com/mkmukulkumar/UserTodoManagement.git   
    ```
 2. Navigate to the project directory:
    ```bash
-   cd usermanagementAPI
+   cd UserTodoManagement
    ```
 3. Install dependencies:
    ```bash
@@ -94,7 +94,7 @@ The server will start running on port 8000 by default. You can access the API at
 ## API Documentation
 The API documentation is available in the Swagger UI format. Once the server is running, you can access the API documentation at http://localhost:8000/api-docs.
 
-https://github.com/mkmukulkumar/usermanagementAPI/assets/61122533/b4790471-a0fc-4e03-afb8-e7dced447772
+https://github.com/mkmukulkumar/UserTodoManagement/assets/61122533/b4790471-a0fc-4e03-afb8-e7dced447772
 
 
 
