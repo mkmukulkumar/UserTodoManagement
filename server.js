@@ -2,8 +2,8 @@ const app = require('./app');
 const PORT = process.env.PORT || 3000;
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express')
-// Start the server
 
+//OpenAPI configuration
 const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
@@ -18,7 +18,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ['./routes/*.js'], // Path to the API routes
+  apis: ['./routes/*.js'],
 };
 
 // Initialize swagger-jsdoc
@@ -26,7 +26,7 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });

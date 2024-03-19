@@ -5,6 +5,9 @@ const User = require('../model/User');
 const bcrypt = require('bcryptjs');
 const jwtsecret=process.env.JWT_SECRET;
 
+
+//Register the new user with password hashing
+
 exports.register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -20,6 +23,8 @@ exports.register = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+//Login the user and generate token if verified
 
 exports.login = async (req, res) => {
   try {

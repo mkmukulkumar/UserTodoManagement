@@ -19,6 +19,7 @@ afterAll(async () => {
 describe('Auth API', () => {
     let authuseremail;
     afterEach(async () => {
+      //remove the data added after every testcase
       if (authuseremail) {
         const user = await User.findOne({ email: authuseremail });
         if (user) {
@@ -33,7 +34,7 @@ describe('Auth API', () => {
         email: 'test@example.com',
         password: 'password123',
       };
-  
+      // register the user
       const res = await request(app)
         .post('/api/auth/register')
         .send(newauthUser)

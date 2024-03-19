@@ -1,4 +1,5 @@
 const User = require('../model/User');
+//function to get the User by id
 async function getuser(req, res, next) {
     let user;
     try {

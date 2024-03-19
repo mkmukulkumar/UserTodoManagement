@@ -18,6 +18,7 @@ app.use(
 mongoose.connect(process.env.MONGO_URL)
 .catch(err => console.error('Error connecting to MongoDB:', err));
 
+//Routes of the app
 app.use('/api/users', userRoutes);
 app.use('/api/todos', todoRoutes);
 app.use('/api/auth', authRoutes);

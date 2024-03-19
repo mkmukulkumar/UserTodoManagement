@@ -3,6 +3,7 @@
 const User = require('../model/User');
 const bcrypt = require('bcryptjs');
 
+//Add user to the database, hash password, check if already exist
 exports.createUser = async (req, res) => {
     try {
         const { username, email, password } = req.body;
@@ -19,6 +20,7 @@ exports.createUser = async (req, res) => {
     }
 };
 
+//get all the users from the database and sends
 exports.getUser = async (req, res) => {
     try {
         const users = await User.find();
@@ -27,10 +29,13 @@ exports.getUser = async (req, res) => {
         res.status(400).json({ message: err.message });
       }
 };
+
+// get the user whose id match with the id given (runs after getuser middleware)
 exports.getSingleUser = async (req, res) => {
   res.json(res.user);
 };
 
+// get the user whose id match with the id given and upadates it(runs after getuser middleware)
 exports.updateUser = async (req, res) => {
     const { username, email, password } = req.body;
     const existingUser = await User.findOne({ email });
@@ -55,6 +60,8 @@ exports.updateUser = async (req, res) => {
     }
 };
 
+
+// get the user whose id match with the id given and deletes it(runs after getuser middleware)
 exports.deleteUser = async (req, res) => {
     try {
         await User.deleteOne(res.user);

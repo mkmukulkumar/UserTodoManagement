@@ -2,6 +2,7 @@
 
 const Todo = require('../model/Todo');
 
+//Add todo to the database
 exports.createTodo = async (req, res) => {
   try {
     const todo = new Todo(req.body);
@@ -12,6 +13,7 @@ exports.createTodo = async (req, res) => {
   }
 };
 
+//Retrieve the todo items based on filter criteria, pagination, and page from the client and returns data from the database accordingly.
 exports.getTodo = async (req, res) => {
   try {
     let { page, limit, title } = req.query;
@@ -41,10 +43,12 @@ exports.getTodo = async (req, res) => {
   }
 };
 
+//Retrieve the single todo item which matches with the id (runs after gettodo middleware)
 exports.getSingleTodo = async (req, res) => {
   res.json(res.todo);
 };
 
+//Retrieve the todo item which matches with the id and update with updated data (runs after gettodo middleware)
 exports.updateTodo = async (req, res) => {
     if (req.body.title != null) {
         res.todo.title = req.body.title;
@@ -61,6 +65,7 @@ exports.updateTodo = async (req, res) => {
     }
 };
 
+//Retrieve the todo item which matches with the id and delete it (runs after gettodo middleware)
 exports.deleteTodo = async (req, res) => {
     try {
         await Todo.deleteOne(res.todo);

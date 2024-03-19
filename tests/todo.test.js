@@ -49,9 +49,10 @@ describe('Todo List API', () => {
         .get('/api/todos')
         .query({ page: 1, limit: 2, title: 'Todo56298' })
         .expect(200);
-  
+      //used Todo56298 for uniqueness
+   
       expect(Array.isArray(res.body.todos)).toBe(true);
-      expect(res.body.totalPages).toBe(2); // Assuming there are 3 todos with 'Todo' in the title
+      expect(res.body.totalPages).toBe(2);
       expect(res.body.currentPage).toBe(1);
   
       await Todo.deleteMany({ title: { $in: ['Todo56298 1', 'Todo56298 2', 'Another Todo56298'] } });

@@ -1,4 +1,5 @@
 const Todo = require('../model/Todo');
+//function to get the todo by id
 async function gettodo(req, res, next) {
     let todo;
     try {
