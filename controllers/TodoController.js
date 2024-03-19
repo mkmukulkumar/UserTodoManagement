@@ -14,8 +14,28 @@ exports.createTodo = async (req, res) => {
 
 exports.getTodo = async (req, res) => {
   try {
-    const todo = await Todo.find();
-    res.json(todo);
+    let { page, limit, title } = req.query;
+    page = parseInt(page) || 1;
+    limit = parseInt(limit) || 10;
+
+    const filter = {};
+    if (title) {
+      filter.title = { $regex: title, $options: 'i' };
+    }
+    const skip = (page - 1) * limit;
+    const todos = await Todo.find(filter)
+    .limit(limit)
+    .skip(skip)
+    .exec();
+
+    const totalTodos = await Todo.countDocuments(filter);
+    
+    res.json({
+      totalPages: Math.ceil(totalTodos / limit),
+      currentPage: page,
+      todos
+    });
+
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
