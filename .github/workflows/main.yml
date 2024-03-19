@@ -8,9 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      MONGO_URL: ${{ secrets.MONGO_URL }}
-      PORT: ${{ secrets.PORT }}
 
     steps:
       - name: Checkout code
@@ -28,7 +25,8 @@ jobs:
         run: |
           touch .env
           echo "MONGO_URL=\"${{ secrets.MONGO_URL }}\"" > .env
-          echo "PORT=${{ secrets.PORT }}" >> .env        
+          echo "PORT=${{ secrets.PORT }}" > .env
+          echo "JWT_SECRET=\"${{ secrets.JWT_SECRET }}\"" >> .env        
 
       - name: Run Jest tests
         run: |

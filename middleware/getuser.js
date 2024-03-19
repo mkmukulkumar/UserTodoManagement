@@ -1,7 +1,5 @@
-const mongoose=require('mongoose')
-const userSchema = require('../model/models');
-async function getUser(req, res, next) {
-    const User = mongoose.model('User', userSchema);
+const User = require('../model/User');
+async function getuser(req, res, next) {
     let user;
     try {
       user = await User.findById(req.params.id);
@@ -14,4 +12,4 @@ async function getUser(req, res, next) {
     res.user = user;
     next();
 }
-module.exports=getUser;
+module.exports=getuser;
